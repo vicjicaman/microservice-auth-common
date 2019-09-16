@@ -1,0 +1,36 @@
+{
+  "name": "@nebulario/microservice-auth-common",
+  "version": "1.70.0-auth-base-cache-data-prod",
+  "description": "Auth library",
+  "main": "dist/index.js",
+  "repository": "github.com:vicjicaman/microservice-auth-common.git",
+  "author": "Victor Jimenez <vic.jicama@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.6.0",
+    "@babel/runtime-corejs3": "^7.6.0",
+    "connect-redis": "^4.0.2",
+    "express-session": "^1.16.2",
+    "graphql-request": "^1.8.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "redis": "^2.8.0",
+    "redis-parser": "^3.0.0"
+  },
+  "scripts": {
+    "clean": "rm -Rf ./dist*",
+    "build:prod": "yarn clean && webpack --config webpack.config.js --mode=production ",
+    "build:dev": "yarn clean && webpack --config webpack.config.js --mode=development ",
+    "build:watch:dev": "yarn build:dev --watch",
+    "build:watch:prod": "yarn build:prod --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
