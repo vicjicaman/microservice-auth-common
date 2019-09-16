@@ -1,6 +1,6 @@
 {
   "name": "@nebulario/microservice-auth-common",
-  "version": "1.70.0-auth-base-cache-data-prod",
+  "version": "1.70.0-auth-common-prod",
   "description": "Auth library",
   "main": "dist/index.js",
   "repository": "github.com:vicjicaman/microservice-auth-common.git",
