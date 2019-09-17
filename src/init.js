@@ -55,7 +55,35 @@ function init({
   const client = redis.createClient({
     host,
     port,
-    auth_pass: secret
+    auth_pass: secret,
+    retry_strategy: function(options) {
+      if (options.error && options.error.code === "ECONNREFUSED") {
+        console.log("The server refused the connection");
+        process.exit(17);
+      }
+      if (options.total_retry_time > 1000 * 60 * 60) {
+        console.log("Retry time exhausted");
+        process.exit(17);
+      }
+      if (options.attempt > 10) {
+        console.log("Retry time exhausted");
+        process.exit(17);
+      }
+
+      return Math.min(options.attempt * 100, 3000);
+    }
+  });
+
+  client.on("connect", function() {
+    console.log(" -> Cache connected");
+  });
+
+  client.on("reconnecting", function() {
+    console.log(" -> Cache reconnecting");
+  });
+
+  client.on("error", function(err) {
+    console.log(" -> Cache error: " + err.toString());
   });
 
   passport.use(
