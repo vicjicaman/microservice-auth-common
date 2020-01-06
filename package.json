@@ -1,6 +1,6 @@
 {
   "name": "@nebulario/microservice-auth-common",
-  "version": "1.70.1-auth-linker-update-prod",
+  "version": "1.70.2-master",
   "description": "Auth library",
   "main": "dist/index.js",
   "repository": "github.com:vicjicaman/microservice-auth-common.git",
